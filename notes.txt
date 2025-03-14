@@ -28,3 +28,14 @@ finally if the chat reaches 2000messages. the users will be prompted in order (u
 if they insert their AR wallet here we store the messages 1000-2000 on arweave and then put a pointer to that storage onto our sol blockchain transaction.
 
 this way we can keep our 'pointers' on sol associated with the token for each chatroom, and the data within arweave for permanence.
+
+
+zk-SNARK info:
+
+user enters in userid and password.
+the system pulls the user1walletaddress which was encrypted and stored locally, as well as the user2infohash which was also encrypted and stored locally.
+finally we pull the mint address which isnt encrypted cuz that shit is on the internet somewhere.
+the password de-encrypts those values.
+then we combine userid+user1walletaddress(decrypted) and user2infohash(decrypted).
+then we check that the new hash made of the above info matches our public mint address. 
+then we log them into the kafka topic.

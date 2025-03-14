@@ -1,0 +1,75 @@
+Day 1-2: Understand Solana Basics & Set Up Development Environment
+Goal: Get familiar with Solana and set up your development environment.
+
+What to do:
+Read Solana Docs on the basics of the blockchain, accounts, and SPL tokens.
+Set up your Solana development environment:
+Install Solana CLI and Rust (if you haven’t already).
+Install Anchor (if using Anchor for smart contracts).
+Set up a local test validator (to test your Solana programs locally before deploying).
+Create and fund a wallet to interact with Solana.
+Play around with the basic commands (like solana balance, solana transfer).
+Outcome: You should have a working Solana dev environment and be comfortable with basic Solana commands.
+
+Day 3-4: Dive into Minting and Token Creation (Solana SPL Tokens)
+Goal: Get comfortable with minting tokens and managing accounts.
+
+What to do:
+Read about SPL Token creation in the Solana Docs.
+Learn how to create a mint and token account in Solana using the spl-token CLI tool.
+Practice creating your own SPL token, minting it, and transferring it between accounts.
+Optional: Test the creation of tokens using a local Solana testnet.
+Outcome: You should be able to mint a Solana token and understand how to interact with tokens on Solana. This gives you the foundation for your token system.
+
+Day 5-6: Solana Smart Contracts (Anchor Framework)
+Goal: Set up a basic smart contract (program) on Solana using Anchor.
+
+What to do:
+Read through the Anchor Docs to understand the basics of writing and deploying smart contracts on Solana.
+Write a simple Anchor program to manage chatrooms (create, mint, etc.).
+Deploy this program locally on your devnet.
+Test your basic program using Anchor CLI.
+Outcome: You should have a simple Anchor program that can handle the chatroom logic and token minting. This is the core functionality that will later be extended to chatroom management.
+
+Day 7-8: Kafka Setup for Chatrooms
+Goal: Set up Kafka to manage chatroom state and facilitate message exchange.
+
+What to do:
+Get familiar with Kafka basics and how to set up a Kafka producer/consumer (probably using a simple Python or Node.js script).
+Create a Kafka topic for each chatroom (i.e., using the chatroomid as the Kafka topic).
+Set up a basic consumer for each user to listen to messages in their chatroom topic.
+Test Kafka message flow between two users (send a message from User1 to User2).
+Outcome: You should be able to send and receive messages in Kafka topics corresponding to chatrooms. Kafka will manage the flow of messages for users in your chat.
+
+Day 9-10: Combine Token Minting with Kafka Chatrooms
+Goal: Connect Solana token minting with Kafka chatroom system.
+
+What to do:
+Implement logic in your smart contract to mint a token and associate it with a chatroom.
+Modify your Kafka system so that only authenticated users (via mint address lookup) can send messages to the Kafka topic.
+Integrate the minting and chatroom creation process, so when a user creates a chatroom, the token is minted and tied to the chatroom.
+Outcome: You should have the full minting process tied into the Kafka chatroom creation, where users can chat in the Kafka topic once they authenticate via the minted token.
+
+Day 11-12: zk-SNARK Authentication System
+Goal: Implement zk-SNARK authentication to log users into the chatroom.
+
+What to do:
+Familiarize yourself with zk-SNARK basics and how they work.
+Implement the zk-SNARK login process: when users enter their user ID and password, the system should:
+Retrieve the stored wallet addresses and hashes.
+Use zk-SNARK to prove the user’s identity based on the local stored values without revealing them.
+Integrate this with the Kafka chatroom system to ensure users can authenticate and be granted access to their specific chatroom topic.
+Outcome: You should have a working zk-SNARK-based login mechanism that uses the locally stored encrypted values for authentication.
+
+Day 13-14: Final Integration and Testing
+Goal: Integrate all components and thoroughly test the flow.
+
+What to do:
+Combine all parts: minting, Kafka chatroom creation, and zk-SNARK authentication into a unified system.
+Test the full flow from:
+Creating a chatroom.
+Minting a token for the chatroom.
+Authenticating users with zk-SNARKs.
+Having users send messages through Kafka after successful authentication.
+Simulate different scenarios (e.g., creating a new chatroom, logging in with the zk-SNARK, sending messages between users).
+Outcome: By the end of the day, the whole system should be functioning together: users can create chatrooms, authenticate via zk-SNARKs, and exchange messages in Kafka topics.
