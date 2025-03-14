@@ -1,0 +1,30 @@
+for storage we want to use Arweave.
+
+flow is kind of like this:
+
+make chat with userid and walletaddress.
+
+inform user that there will be costs on creating the chatroom (list costs for each attempt)
+
+the user then enters their chatroomid. this will be used as the token name.
+
+we lookup if the token name exists. if it doesnt we continue.
+
+we store userid1 and walletaddress1 hashed in kafka.
+
+then user2 enters userid and walletaddress. again we lookup the token. if it doesnt exist we continue.
+
+we then take userid1, walletaddress1, userid2 (hashed), walletaddress2 (hashed) and concatenate them.
+
+We store this concatenated hashed value as our mint address and post the token with the name being the chatroomid.
+
+the 'first' time each user logs into the chatroom we will lookup and pull the chatroomid and mintaddress and store them locally on the users pc.
+
+those values will be used to zk-SNARK auth their logins with a homogenous solution for both users. (they just enter in their userid like:
+	hushed user1) and we zk-SNARK auth that their username exists within the locally downloaded values.
+
+finally if the chat reaches 2000messages. the users will be prompted in order (user1,user2,user1, etc.) that there will be a SOL costs and an AR cost to continue.
+
+if they insert their AR wallet here we store the messages 1000-2000 on arweave and then put a pointer to that storage onto our sol blockchain transaction.
+
+this way we can keep our 'pointers' on sol associated with the token for each chatroom, and the data within arweave for permanence.
