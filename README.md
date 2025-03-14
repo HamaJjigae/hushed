@@ -1,6 +1,6 @@
 # Hushed - A Secure, Private Chat System
 
-Hushed is a privacy-focused, terminal-based chat system that leverages blockchain technology and zero-knowledge proofs (zk-SNARKs) to authenticate users securely and privately. It uses Solana for minting unique NFTs representing each chat session, Kafka to store recent chat messages, and a groth16 zk-SNARK to validate user identity via a homogenous solution for checking the user credentials.
+Hushed is a privacy-focused, terminal-based chat system that leverages blockchain technology and zero-knowledge proofs (zk-SNARKs) to authenticate users securely and privately. It uses Solana for minting unique NFTs representing each chat session, Kafka to store recent chat messages, Arweave to store mature messages, and a groth16 zk-SNARK to validate user identity via a homogenous solution for checking the user credentials.
 
 ## Key Features
 
