@@ -1,10 +1,10 @@
 # Hushed - A Secure, Private Chat System
 
-Hushed is a privacy-focused, terminal-based chat system that leverages blockchain technology and zero-knowledge proofs (zk-SNARKs) to authenticate users securely and privately. It uses Solana for minting unique NFTs representing each chat session, Kafka to store recent chat messages, Arweave to store mature messages, and a groth16 zk-SNARK to validate user identity via a homogenous solution for checking the user credentials.
+Hushed is a privacy-focused, terminal-based chat system that leverages blockchain technology and zero-knowledge proofs (zk-SNARKs) to authenticate users securely and privately. It uses Solana for creating PDAs representing each chat session, Kafka to store recent chat messages, Arweave to store mature messages, and a groth16 zk-SNARK to validate user identity via a homogenous solution for checking the user credentials.
 
 ## Key Features
 
-- **Solana Minting:** Hushed mints a unique NFT token for each chat based on the combination of **user IDs** and **wallet IDs**. The NFT token ID ensures that only valid users can participate in the chat.
+- **Solana PDA:** Hushed creates a PDA for each chat based on the combination of **user IDs** and **wallet IDs**. The PDA ID ensures that only valid users can participate in the chat.
   
 - **zk-SNARK Authentication:** Using the **Groth16** zk-SNARK protocol, the system checks whether a user is valid by comparing a hashed combination of the user's ID and wallet ID against the token ID. This ensures only authorized users can access the chat.
   
@@ -37,7 +37,7 @@ To install and use **Hushed**, follow these steps:
 How It Works:
 
 Technologies Used:
-    Solana SDK: Used to mint unique NFT tokens for each chat
+    Solana SDK: Used to create PDAs for each chat
     Poseidon Hashing: To securely hash user IDs and wallet IDs
     zk-SNARK (groth16): For ZKP authentication
     Kafka: For sotring and handling recent chat messages
